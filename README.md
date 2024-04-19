@@ -1,2 +1,2 @@
-# Salmon-Stocks-Endogenous-Portfolio-Thoery
+# SalmonStocks-EndogenousPortfolioTheory
 To be updated.
