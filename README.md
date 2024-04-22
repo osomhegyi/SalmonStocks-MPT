@@ -1,5 +1,3 @@
-# SalmonStocks-MPT
-
 Detailed ReadME to come!
 
 # Salmonstocks
