@@ -1,2 +1,2 @@
-# SalmonStocks-EndogenousPortfolioTheory
+# SalmonStocks-MPT
 To be updated.
