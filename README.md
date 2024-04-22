@@ -39,7 +39,7 @@ s_luu@bren.ucsb.edu
 
 University of California, Santa Barbara
 
-oliviasomehegyi@ucsb.edu
+oliviasomehegyi@bren.ucsb.edu
 
  ### Repository Directory
  
