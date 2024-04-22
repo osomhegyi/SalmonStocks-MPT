@@ -1,4 +1,4 @@
-Detailed ReadME to come!
+🚧Repository is under construction and will be updated mid-May!🚧
 
 # Salmonstocks-MPT
 
