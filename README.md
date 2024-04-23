@@ -23,6 +23,12 @@ University of California, Santa Barbara
 
 aliciacanales@bren.ucsb.edu
 
+**Olivia Somhegyi: Co-Project Manager**
+
+University of California, Santa Barbara
+
+oliviasomehegyi@bren.ucsb.edu
+
 **Jaden Husser: Communication Manager**
 
 University of California, Santa Barbara
@@ -34,12 +40,6 @@ jadenhusser@bren.ucsb.edu
 University of California, Santa Barbara
 
 s_luu@bren.ucsb.edu 
-
-**Olivia Somhegyi: Co-Project Manager**
-
-University of California, Santa Barbara
-
-oliviasomehegyi@bren.ucsb.edu
 
  ### Repository Directory
  
