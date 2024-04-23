@@ -27,7 +27,7 @@ aliciacanales@bren.ucsb.edu
 
 University of California, Santa Barbara
 
-oliviasomehegyi@bren.ucsb.edu
+oliviasomhegyi@bren.ucsb.edu
 
 **Jaden Husser: Communication Manager**
 
