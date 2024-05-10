@@ -297,17 +297,23 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "\e259";
+.tabset-dropdown > .nav-tabs > li.active:before {
+content: "";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "\e258";
-font-family: 'Glyphicons Halflings';
+content: "";
 border: none;
+}
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "";
+font-family: 'Glyphicons Halflings';
+display: inline-block;
+padding: 10px;
+border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -354,32 +360,31 @@ display: none;
 
 <div id="summary" class="section level3">
 <h3>Summary</h3>
-<ul>
-<li>This README summarizes the 1_abundance_data.R script. The user will
-run all lines of code to read in the Oregon Coast coho salmon abundance
-data.</li>
-</ul>
 <div id="variables" class="section level4">
 <h4>Variables</h4>
 <ul>
-<li><code>coho</code>: data frame that holds return adult coho spawner
-abundance data for each population</li>
+<li><code>coho_recruits</code> - adult coho spawner abundance with
+coefficients ‘recuits_flip’ and ‘abundance_flip’ needed for nls
+analysis</li>
+<li><code>calculate_equil_abundance</code> - function to calculate
+equilibrium abundance</li>
+<li><code>all_nls</code> - function to perform nonlinear least squares
+to find baseline productivity and carrying capacity coefficients</li>
+<li><code>equilibrium_all</code> - dataframe that holds the output of
+all_nls function using coho_recuits data</li>
 </ul>
 </div>
 <div id="workflow" class="section level4">
 <h4>Workflow</h4>
-<ol style="list-style-type: decimal">
-<li>Run all libraries. These libraries will be needed for functions used
-across all scripts in this project</li>
-<li>Run code lines 18 - 22 to read in the ODFW data</li>
-</ol>
+<ul>
+<li>This section will be the workflow of the script</li>
+</ul>
 </div>
 <div id="moving-forward" class="section level4">
 <h4>Moving Forward</h4>
 <ul>
-<li>If the user would like to apply this framework to another species,
-life history data would be needed moving forward. This script would be
-where to include new species data that contain abundance over time.</li>
+<li>This section will be areas where things can be modified moving
+forward with the analysis</li>
 </ul>
 </div>
 </div>
