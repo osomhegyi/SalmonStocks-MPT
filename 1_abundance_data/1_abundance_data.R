@@ -19,4 +19,4 @@ coho <- readxl::read_xlsx(here('data', 'input', 'OC Coho Abundance.xlsx')) %>% #
   clean_names() %>% # clean column names; convert to lower case, replace spaces with underscores
   distinct() %>% # remove duplicate rows
   select(-tahkenitch) %>% # remove the 'tahkenitch' column due to computational errors when running nls
-  select(-sixes) # remove the 'sixes' column due to computational errors when running nls
+  select(-sixes) # remove the 'sixes' column due to computational errors when running nls 
