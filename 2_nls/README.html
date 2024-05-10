@@ -297,23 +297,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -360,32 +354,56 @@ display: none;
 
 <div id="summary" class="section level3">
 <h3>Summary</h3>
+<ul>
+<li>This README summarizes the 2_nls.R script. The user will run all
+lines of code to generate results from the non-linear least squares
+regression analysis.</li>
+</ul>
 <div id="variables" class="section level4">
 <h4>Variables</h4>
 <ul>
-<li><code>coho_recruits</code> - adult coho spawner abundance with
+<li><code>coho_recruits</code>: adult coho spawner abundance with
 coefficients ‘recuits_flip’ and ‘abundance_flip’ needed for nls
 analysis</li>
-<li><code>calculate_equil_abundance</code> - function to calculate
+<li><code>calculate_equil_abundance</code>: function to calculate
 equilibrium abundance</li>
-<li><code>all_nls</code> - function to perform nonlinear least squares
-to find baseline productivity and carrying capacity coefficients</li>
-<li><code>equilibrium_all</code> - dataframe that holds the output of
+<li><code>all_nls</code>: function to perform nonlinear least squares to
+find baseline productivity and carrying capacity coefficients</li>
+<li><code>equilibrium_all</code>: dataframe that holds the output of
 all_nls function using coho_recuits data</li>
 </ul>
 </div>
 <div id="workflow" class="section level4">
 <h4>Workflow</h4>
-<ul>
-<li>This section will be the workflow of the script</li>
-</ul>
-</div>
-<div id="moving-forward" class="section level4">
-<h4>Moving Forward</h4>
-<ul>
-<li>This section will be areas where things can be modified moving
-forward with the analysis</li>
-</ul>
+<ol style="list-style-type: decimal">
+<li>Run code lines 4 - 13. The dataframe <code>coho_recuits</code>
+contains the columns year, population, abundance, recruits,
+recuits_flip, and abundance_flip. The columns ‘recuits_flip’ and
+‘abundance_flip’ are needed to calculate the baseline productivity and
+carrying capacity coefficients needed for the nls regression. We need
+recruits or the number of fish that are mature enough to leave to the
+ocean and return the following year. We use lead(abundance) and assume
+the amount of salmon that left to the ocean for a given year is equal to
+the amount that returned the year prior.</li>
+<li>Run code lines 16 - 22. <code>calculate_equil_abund</code> is used
+to calculate the abundance of salmon at equilibrium. The variables
+needed are salmon abundance, baseline productivity coefficient (p_hat),
+and baseline carrying capacity coefficient (c_hat).</li>
+<li>Run code lines 25 - 41. This <code>all_nls</code> function is used
+to run the nls regression model on the recruits and abundance values to
+estimate the baseline productivity and carrying capacity for each
+population in the ESU. To run nls we need to run a linear regression on
+the recruits_flip variables as a function of the abundance_flip variable
+and extract the intercept and coefficient values of that model. We then
+give nls guess vectors to train the model to generate a more accurate
+output. Lastly, we run the nls function on the recruits values as a
+function of the calculated equilibrium abundance using the desired
+dataframe, guess vectors, and the controls.</li>
+<li>Run code lines 44 - 48. We then run the <code>all_nls</code>
+function on the ‘coho_recuits’ dataframe, mutate a column ‘nls_model’ to
+store the results of the nls model, and mutate another column ‘coeff’ to
+store the coefficients of the nls model.</li>
+</ol>
 </div>
 </div>
 
