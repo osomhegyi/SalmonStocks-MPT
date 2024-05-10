@@ -5,8 +5,8 @@
 - `coho`: data frame that holds return adult coho spawner abundance data for each population
 
 #### Workflow
-- 1. Run all libraries. These libraries will be needed for functions used across all scripts in this project
-- 2. Run code lines 18 - 22 to read in the ODFW data 
+1. Run all libraries. These libraries will be needed for functions used across all scripts in this project
+2. Run code lines 18 - 22 to read in the ODFW data 
 
 
 #### Moving Forward
