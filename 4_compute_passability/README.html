@@ -381,10 +381,10 @@ population prior to conservation investment.</li>
 <li>Run code lines 2 - 98. The <code>bpassage_base_compute_fcn</code> is
 used to compute the base passability value for each population in the
 ESU before conservation investment. The function input is a dataframe
-that includes the variables stream level, stream ID, and barrier
-passability value for each barrier within the watershed. The data is
-sorted sequentially by stream level, stream ID, and barrier passability.
-For each individual salmon population, the
+that includes the variables stream level, stream ID, and barrier pass
+score for each barrier within the watershed. The data is sorted
+sequentially by stream level, stream ID, and barrier pass score. For
+each individual salmon population, the
 <code>bpassage_base_compute_fcn</code> function iterates across each
 stream level and across each stream ID within a stream level to
 determine the specific weight and passibility associated with each
