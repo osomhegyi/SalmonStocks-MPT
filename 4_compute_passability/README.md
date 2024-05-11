@@ -2,11 +2,11 @@
 - This README summarizes the 4_compute_passability.R script. The user will run all code lines to generate base passability values for each population in the ESU before conservation investment. Stream passability for pacific salmon is directly influenced by the number of barriers within a watershed and the location of said barriers within the watershed. Therefore, this function computes the passability for each population within the ESU using the identified steam level, stream ID, and passability of each individual barrier located within a given watershed. To compute passability for each population, we use the following two equations shown below, where 𝛽passage is the passability for a given population, R is the number of stream levels within a population, r is the stream level, Sr is the number of stream IDs within stream level r, sr  is a stream ID within stream level r, pb is the passability of barrier b, fr,sr is the weight specific to stream level r and stream ID sr , Gsris the total number of barriers in a given stream ID, and Gr is the total number of barriers in a stream level.
 
 \begin{equation} \label{eq:pass}
-    \text{passability} = \sum_{r =1}^{R}\sum_{s_r =1}^{S_r} \prod_{b\in r, s_r} p_b \times w_{r,s_r} 
+    \text{passability} = \sum_{r =1}^{R}\sum_{s_r =1}^{S_r} \prod_{b\in r, s_r} p_b \times f_{r,s_r} 
 \end{equation}
 
 \begin{equation} \label{eq:nateweight}
-w_{r,s_r} = \frac{1}{r \sum_{r=1}^{R} \frac{1}{r}}\times \frac{N_{s_r}}{N_r}
+f_{r,s_r} = \frac{1}{r \sum_{r=1}^{R} \frac{1}{r}}\times \frac{G_{s_r}}{G_r}
 \end{equation}
 
 #### Variables
