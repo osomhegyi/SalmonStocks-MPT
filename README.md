@@ -1,8 +1,9 @@
 ### Redesigning Modern Portfolio Theory to Improve Spatial Recovery Planning for Oregon Coast Coho Salmon
 
-
 #### Description
-The purpose of this repository is to present the code for the 2024 University of California, Santa Barbara Bren School of Environmental Science & Management Master’s Group Project: Redesigning Modern Portfolio Theory to Improve Spatial Recovery Planning for Oregon Coast Coho Salmon. To run this analysis the user must run each folder and its contents in chronological order starting with folder `1_abundance`.
+The purpose of this repository is to present the code for the 2024 University of California, Santa Barbara Bren School of Environmental Science & Management Master’s Group Project: Redesigning Modern Portfolio Theory to Improve Spatial Recovery Planning for Oregon Coast Coho Salmon. The data needed to run this code can be downloaded from DRYAD. To run this analysis the user will need to clone this repository to their local drive and download the data. The user will then need to add the 'data' folder to their cloned repository without changing any naming system.
+
+To start the user must run each folder and its contents in chronological order starting with folder `1_abundance`.
 
 *Contributors*
 
@@ -45,4 +46,4 @@ s_luu@bren.ucsb.edu
 
 `9_compute_portfolios` - code to run the optimize function to compute many portfolios using the functions generated from the above scripts. The resulting data frame named `portfolios` contains the total returns and total variance of the ESU after investment for every portfolio generated.  
 
-`10_visualizations` - code to generate the efficiency frontier plots for each budget ($23 Million, $13.1 Million, and $3.5 Million) and plot to further analyze budget allocations within a portfolio. 
+`10_visualizations` - code to generate the efficiency frontier plots for each budget ($23 Million, $13.1 Million, and $3.5 Million) and lollipop plot to further analyze budget allocations within a portfolio. 
