@@ -12,6 +12,7 @@ library(furrr) # functions for parallel processing
 library(dplyr) # functions for data manipulation
 library(broom) # tools to tidy model outputs into tidyverse format
 library(nloptr) # package to generate randomized weights
+library(LaplacesDemon) # package to generate randomized weights
 
 
 ## read in abundance data

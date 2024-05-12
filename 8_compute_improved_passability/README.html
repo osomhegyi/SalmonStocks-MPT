@@ -297,23 +297,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -366,25 +360,10 @@ lines to generate three functions in order to compute the improved
 passability for each population after conservation investment. The
 functions created in this script allow us to 1) determine the
 conservation budget allocated to each population for a given set of
-weights and conservation budget 2) improve the individual barrier
-passability values for each barrier that is mitigated from conservation
-investment and 3) compute the watershed passability for each population
-after investment. To compute watershed passability for each population,
-we use the following two equations, where 𝛽passage is the passability
-for a given population, R is the number of stream levels within a
-population, r is the stream level, Sr is the number of stream IDs within
-stream level r, sr is a stream ID within stream level r, pb is the
-passability of barrier b, fr,sr is the weight specific to stream level r
-and stream ID sr, Gsris the total number of barriers in a given stream
-ID, and Gr is the total number of barriers in a stream level.</p>
-<p><span class="math display">\[\begin{equation} \label{eq:pass}
-    \text{passability} = \sum_{r =1}^{R}\sum_{s_r =1}^{S_r} \prod_{b\in
-r, s_r} p_b \times f_{r,s_r}
-\end{equation}\]</span></p>
-<p><span class="math display">\[\begin{equation} \label{eq:nateweight}
-f_{r,s_r} = \frac{1}{r \sum_{r=1}^{R} \frac{1}{r}}\times
-\frac{G_{s_r}}{G_r}
-\end{equation}\]</span></p>
+weights and conservation budget 2) improve the individual barrier pass
+score for each barrier that is mitigated from conservation investment
+and 3) compute the watershed passability for each population after
+investment.</p>
 </div>
 <div id="variables" class="section level4">
 <h4>Variables</h4>
@@ -417,15 +396,27 @@ is not necessary to run this line in order to run the
 <code>optimize_fcn</code>, however if the user would like to identify
 the budget allocated to each population before simulating portfolios,
 they may run this code line.</li>
-<li>Run code lines 13 - 37. The function
+<li>Run code lines 13 - 37. The function <code>while_fcn</code> is used
+to improve the barrier pass score for each barrier that is mitigated
+with conservation investment. For each population, using the list of
+barriers sorted by stream level, stream ID, and barrier pass score along
+with the budget allocated to that population, this function uses a while
+loop to improve the total number of barriers, so long as the available
+budget remains. The while loop is used to determine the number of
+barriers to be mitigated for a given allocated conservation budget,
+shown by the vector ‘index_choice’. The ‘rows to change’ vector is then
+used to improve the barrier pass score from less than 1 to 1, for each
+barrier that is mitigated. Barriers that receive a pass score of 1,
+indicate that they do not impact stream passability.</li>
+<li>Run code lines 40 - 136. The function
 <code>bpassage_invest_compute_fcn</code> is used to compute the
 watershed passability value for each population in the ESU after
 conservation investment. This function applies the two equations shown
 above to compute the overall watershed passability for a population. The
-function input is a data frame that includes stream level, stream ID,
-and barrier passability information for each barrier within the
-watershed. The data is sorted sequentially by stream level, stream ID,
-and barrier passability. For each individual salmon population, the
+function input is a dataframe that includes stream level, stream ID, and
+barrier passability information for each barrier within the watershed.
+The data is sorted sequentially by stream level, stream ID, and barrier
+passability. For each individual salmon population, the
 <code>bpassage_base_compute_fcn</code> function iterates across each
 stream level and across each stream ID within a stream level to
 determine the specific weight and passibility associated with each
@@ -434,21 +425,8 @@ closer to the mouth of a watershed to have greater influence on stream
 passability for pacific salmon, as opposed to barriers located higher up
 in the watershed. Therefore, to account for this in our calculation of
 stream passability, each barrier within a stream id and stream level
-receives a weight, represented as fr,sr, based on the location of the
-barrier within the watershed.</li>
-<li>Run code lines 40 - 137. The function <code>while_fcn</code> is used
-to improve the barrier passability values for each barrier that is
-mitigated with conservation investment. For each population, using the
-list of barriers sorted by stream level, stream ID, and barrier pass
-score along with the budget allocated to that population, this function
-uses a while loop to improve the total number of barriers, so long as
-the available budget remains. The while loop is used to determine the
-number of barriers to be mitigated for a given allocated conservation
-budget, shown by the vector index_choice. The rows to change vector is
-then used to improve the barrier passability scores from less than 1, to
-1 for each barrier that is mitigated. Barriers that receive a
-passability score of 1, indicate that they do not impact stream
-passability.</li>
+receives a weight, based on the location of the barrier within the
+watershed.</li>
 </ol>
 </div>
 
