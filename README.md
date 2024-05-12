@@ -3,7 +3,7 @@
 #### Description
 The purpose of this repository is to present the code for the 2024 University of California, Santa Barbara Bren School of Environmental Science & Management Master’s Group Project: Redesigning Modern Portfolio Theory to Improve Spatial Recovery Planning for Oregon Coast Coho Salmon. The data needed to run this code can be downloaded from DRYAD. To run this analysis the user will need to clone this repository to their local drive and download the data. The user will then need to add the 'data' folder to their cloned repository without changing any naming system.
 
-To start the user must run each folder and its contents in chronological order starting with folder `1_abundance`.
+To start the user must run each folder and its contents in chronological order starting with folder `01_abundance`.
 
 *Contributors*
 
