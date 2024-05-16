@@ -3,7 +3,7 @@ This readme summarizes the 7_weights.R  script. The user will run all code lines
 
 #### Variables
 - `abundance_data`: dataframe that contains columns of each population's salmon abundance
-`raw`: data frame that contains randomly distributed weights using the sampling function rdirichlet. each row is 1 portfolio with each column belonging to 1 population in the portfolio.
+- `raw`: data frame that contains randomly distributed weights using the sampling function rdirichlet. each row is 1 portfolio with each column belonging to 1 population in the portfolio.
 - `rounded`: data frame that contains randomly distributed weights that have been rounded to 2 decimal places using the sampling function rdirichlet. each row is 1 portfolio with each column belonging to 1 population in the portfolio.
 - `diff`: data frame that contains the difference between the values of the raw and rounded weights. this was done to help ensure that all weight allocations summed to 1.
 `final_check`: data frame that contains all portfolios where all randomly distributed weights sum to 1.00
